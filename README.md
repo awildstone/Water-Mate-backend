@@ -2,7 +2,7 @@
 
 This is the backend API for Water Mate.
 
-##### Setting up and Running this API
+### Setting up and Running this API
 
 Using your command shell:
 
@@ -29,13 +29,13 @@ To start the server:
 1. Close iPython (Ctrl + D), then enter `flask run`. 
 2. You can visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to make sure the API server is running.
 
-##### External API's in Use
+### External API's in Use
 
 [MapQuest Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/) for getting and saving a user's current geolocation lat/long coordinates.
 
 [Sunset and sunrise times API](https://sunrise-sunset.org/api) for gathering solar data in a user's location.
 
-##### Database Schema
+### Database Schema
 
 [https://app.quickdatabasediagrams.com/#/d/mxfbkG](https://app.quickdatabasediagrams.com/#/d/mxfbkG)
 
