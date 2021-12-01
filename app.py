@@ -57,6 +57,11 @@ connect_db(app)
 # Routes
 ####################
 
+@app.route('/', methods=['GET'])
+def home():
+    """ Homepage welcome message. """
+    return jsonify("Welcome to Water Mate!"), 200
+
 @app.errorhandler(404)
 def page_not_found(e):
     """404 not found."""
