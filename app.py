@@ -60,7 +60,7 @@ connect_db(app)
 @app.route('/', methods=['GET'])
 def home():
     """ Homepage welcome message. """
-    return jsonify("Welcome to Water Mate!"), 200
+    return jsonify({"msg": "Welcome to Water Mate!"}), 200
 
 @app.errorhandler(404)
 def page_not_found(e):
