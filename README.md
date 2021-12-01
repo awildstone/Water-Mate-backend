@@ -27,7 +27,12 @@ To seed the database:
 To start the server:
 
 1. Close iPython (Ctrl + D), then enter `flask run`. 
-2. You can visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to make sure the API server is running.
+2. You can visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to make sure the API server is running. You should see json message: 
+```
+{
+  "msg": "Not found."
+}
+```
 
 ### External API's in Use
 
