@@ -16,3 +16,4 @@ class CustomJSONEncoder(JSONEncoder):
       return o.isoformat()
     else:
       return super().default(o)
+      

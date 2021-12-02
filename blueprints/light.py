@@ -78,3 +78,4 @@ def delete_lightsource(current_user, lightsource_id):
             return jsonify({"msg": "You cannot delete a lightsource when plants are using it."}), 403
     else:
         return jsonify({ "msg": "Not Authorized." }), 403
+        

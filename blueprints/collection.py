@@ -89,3 +89,4 @@ def delete_collection(current_user, collection_id):
             return jsonify({"msg": "You cannot delete a collection that has plants!"}), 403
     else:
         return jsonify({ "msg": "Not Authorized." }), 403
+        

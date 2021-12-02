@@ -5,10 +5,8 @@ from dataclasses import dataclass
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 import jwt
-from jwt import InvalidSignatureError
 import uuid
 import datetime
-from datetime import timedelta
 from water_calculator import WaterCalculator
 
 bcrypt = Bcrypt()
@@ -399,3 +397,4 @@ class Plant(db.Model):
             ))
 
         db.session.commit()
+        

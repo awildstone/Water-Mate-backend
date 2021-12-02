@@ -110,3 +110,4 @@ def snooze_plant(current_user, schedule_id):
 
     else:
         return jsonify({ "msg": "Not Authorized." }), 403
+        

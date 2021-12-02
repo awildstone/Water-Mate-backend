@@ -211,4 +211,5 @@ class SolarCalculator:
                 #user is in the southern hemisphere
                 plant_max_daily_light.append(sh_light_calculations[self.light_type])
             
-        return plant_max_daily_light      
+        return plant_max_daily_light     
+         

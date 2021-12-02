@@ -29,9 +29,10 @@ To start the server:
 1. Close iPython (Ctrl + D), then enter `flask run`. 
 2. You can visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to make sure the API server is running. You should see the message: 
 ```
+{
+  "msg": "Welcome to Water Mate!"
 
-  "Welcome to Water Mate!"
-
+}
 ```
 
 ### External API's in Use

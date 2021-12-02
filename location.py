@@ -103,3 +103,4 @@ class UserLocation:
 
         if CITY_LEVEL in (first_result['geocodeQualityCode']):
             return first_result['latLng']
+            

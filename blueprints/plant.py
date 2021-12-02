@@ -235,3 +235,4 @@ def get_plants_to_water(current_user, page):
             return jsonify({ "plants": plants.items, "count": len(room_count), "itemsPerPage": items_per_page }), 200
         else:
             return jsonify({ "msg": "Not Authorized." }), 403
+            

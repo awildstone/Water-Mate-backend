@@ -71,3 +71,4 @@ def page_not_found(e):
 def forbidden(e):
     """403 forbidden route."""
     return jsonify({ "msg": "Not authorized." }), 403
+    
