@@ -42,7 +42,10 @@ def add_lightsource(current_user):
     """Add one or multiple light sources to a room."""
 
     data = request.get_json()
+    print(data)
     room_id = data['roomId']
+    print(room_id)
+    print(type(room_id))
     room = Room.query.get_or_404(room_id)
 
     if current_user.id == room.user_id:
