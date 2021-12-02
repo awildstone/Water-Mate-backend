@@ -24,15 +24,16 @@ class Uploader:
         try:
             s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
+            #create new path & set
+            new_directory_name = f'uploads/user/{self.user_id}/'
+            s3.put_object(Bucket=BUCKET_NAME, Key=(new_directory_name))
+
         except ClientError as e:
             if e.response['Error']['Code'] == 'ValidationError':
                 print("Invalid credentials.")
             else:
                 print(f'Unexpected error: {e}')
-        
-        #create new path & set
-        new_directory_name = f'uploads/user/{self.user_id}/'
-        s3.put_object(Bucket=BUCKET_NAME, Key=(new_directory_name))
+                
 
     def upload_image(self, key, img):
         """Upload a user's image to their upload path and return the url of the uploaded image."""
