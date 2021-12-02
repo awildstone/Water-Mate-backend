@@ -4,10 +4,12 @@
 # Next, open ipython and first %run app.py then %run seed.py.
 
 from csv import DictReader
+from app import app
 from models import db, LightType, PlantType
 
 #create the tables
-db.create_all()
+with app.app_context():
+    db.create_all()
 
 #now seed the DB with our shared data
 artificial = LightType(type='Artificial')
