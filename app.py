@@ -5,13 +5,13 @@ from flask import Flask, jsonify
 from models import connect_db
 from custom_json_encoder import CustomJSONEncoder
 # from flask_debugtoolbar import DebugToolbarExtension
-from flask_cors import CORS
+# from flask_cors import CORS
 
 app = Flask(__name__)
 #this encodes specific data into strings for JSON responses
 app.json_encoder = CustomJSONEncoder
 #this updates CORS policy so that 'Access-Control-Allow-Origin' headers can be on the same domain (for local server/development only)
-CORS(app)
+# CORS(app)
 
 #import and register blueprint routes
 from blueprints.auth import auth
