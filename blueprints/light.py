@@ -52,7 +52,7 @@ def add_lightsource(current_user):
         try:
             for light in data:
                 if data[light] == True:
-                    room.lightsources.append(LightSource(type=light, type_id=LIGHT_DICT[light], room_id=room_id))
+                    room.lightsources.append(LightSource(type=light, type_id=LIGHT_DICT[light], room_id=room.id))
             
             db.session.commit()
             return jsonify({"msg": "Success! Lightsource(s) added."}), 201
