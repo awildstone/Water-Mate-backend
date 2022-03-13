@@ -1,6 +1,7 @@
+from json.decoder import JSONDecodeError
 import os
 from dotenv import load_dotenv
-import requests, json
+import requests
 
 load_dotenv()  # take environment variables from .env
 
@@ -97,10 +98,11 @@ class UserLocation:
 
         if (self.city and not self.state and not self.country):
             return
-        
-        response = requests.get(BASE_URL, params={'location': self._get_location()})
-        first_result = response.json()['results'][0]['locations'][0]
+        try:
+            response = requests.get(BASE_URL, params={'location': self._get_location()})
+            first_result = response.json()['results'][0]['locations'][0]
 
-        if CITY_LEVEL in (first_result['geocodeQualityCode']):
-            return first_result['latLng']
-            
+            if CITY_LEVEL in (first_result['geocodeQualityCode']):
+                return first_result['latLng']
+        except JSONDecodeError:
+            return

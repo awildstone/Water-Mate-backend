@@ -1,7 +1,8 @@
 """Location Tests"""
 
-# FLASK_ENV=production python3 -m unittest test_location.py
+# FLASK_ENV=production python3 -m unittest tests.test_location
 
+import json
 from unittest import TestCase
 from location import UserLocation
 
