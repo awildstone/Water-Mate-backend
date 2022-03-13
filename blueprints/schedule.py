@@ -111,9 +111,9 @@ def snooze_plant(current_user, schedule_id):
         try:
             # eventually this can be a user input, for now it is 3
             snooze_days = 3
+            water_schedule.water_interval = water_schedule.water_interval + snooze_days
             water_schedule.next_water_date = water_schedule.water_date + \
-                timedelta(days=snooze_days)
-            WaterSchedule.update_water_interval(water_schedule, snooze_days)
+                timedelta(days=water_schedule.water_interval)
             WaterSchedule.create_water_history_record(
                 water_schedule, water_schedule.water_date, snooze_days, notes, plant.id, water_schedule.id)
 
