@@ -133,12 +133,6 @@ class WaterSchedule(db.Model):
         return self.next_water_date.strftime("%m/%d/%Y")
 
     @classmethod
-    def update_water_interval(cls, water_schedule, numDays):
-        """Adds number of days to the current WaterSchedule water_interval."""
-        water_schedule.water_interval = water_schedule.water_interval + numDays
-        db.session.commit()
-
-    @classmethod
     def calculate_next_water_date(cls, user, plant_type, water_schedule, light_type):
         """Creates a new Water Calculator instance with the user, plant type, water schedule and light type. Gets a solar forcast using user, plant and light data and calculates and returns the reccomended water interval for calculating the next water date for a plant."""
 
