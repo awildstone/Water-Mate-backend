@@ -6,7 +6,7 @@ from datetime import date, datetime, timedelta
 from tzlocal import get_localzone
 
 
-BASE_URL = 'http://api.sunrise-sunset.org/json'
+BASE_URL = 'https://api.sunrise-sunset.org/json'
 
 
 class SolarCalculator:
