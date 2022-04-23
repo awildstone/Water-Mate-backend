@@ -113,19 +113,24 @@ class SolarCalculator:
         str_lng = str(self.user_location['longitude'])
         str_day = day.strftime('%Y-%m-%d')
 
-        response = ''
+        response = requests.get(BASE_URL, params={
+            'lat': str_lat,
+            'lng': str_lng,
+            'date': str_day
+        })
 
-        try:
-            response = requests.get(BASE_URL, params={
-                'lat': str_lat,
-                'lng': str_lng,
-                'date': str_day})
-            # if the request is successfull this will not raise an HTTPError
-            response.raise_for_status()
-        except HTTPError as http_err:
-            print(http_err)
-        except Exception as err:
-            print(err)
+        # response = ''
+        # try:
+        # response = requests.get(BASE_URL, params={
+        #     'lat': str_lat,
+        #     'lng': str_lng,
+        #     'date': str_day})
+        # if the request is successfull this will not raise an HTTPError
+        #     response.raise_for_status()
+        # except HTTPError as http_err:
+        #     print(http_err)
+        # except Exception as err:
+        #     print(err)
 
         results = response.json()['results']
 
