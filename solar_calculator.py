@@ -2,7 +2,6 @@
 
 import requests
 import logging
-from requests.adapters import HTTPAdapter, Retry
 from requests.exceptions import HTTPError
 from datetime import date, datetime, timedelta
 from tzlocal import get_localzone
@@ -117,10 +116,7 @@ class SolarCalculator:
 
         response = ''
         try:
-            request_session = requests.Session()
-            retries = Retry(total=2, backoff_factor=0, status_forcelist=[503])
-            request_session.mount('http://', HTTPAdapter(max_retries=retries))
-            response = request_session.get(BASE_URL, params={
+            response = requests.get(BASE_URL, params={
                 'lat': str_lat,
                 'lng': str_lng,
                 'date': str_day
