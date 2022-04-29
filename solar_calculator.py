@@ -203,32 +203,32 @@ class SolarCalculator:
                 # sunrise-midday (soft morning light)
                 "East": solar_noon_times[i] - sunrise_times[i],
                 # sunrise to sunset - 7/8 of total daylight
-                "South": self.get_fraction_of_time(day_lengths[i].time(), 0.875),
+                "South": self.get_fraction_of_time(day_lengths[i].time(), 0.75),
                 # midday-sunset (hard afternoon light)
                 "West": sunset_times[i] - solar_noon_times[i],
                 # 1/8 of daily sun (soft morning light)
                 "Northeast": self.get_fraction_of_time(day_lengths[i].time(), .125),
                 # 1/8 of daily sun (hard afternoon light)
                 "Northwest": self.get_fraction_of_time(day_lengths[i].time(), .125),
-                # sunrise-midday (soft morning light) - 3/4 of total daylight
-                "Southeast": self.get_fraction_of_time(day_lengths[i].time(), .75),
-                # midday-sunset (hard afternoon light) - 3/4 of total daylight
-                "Southwest": self.get_fraction_of_time(day_lengths[i].time(), .75),
+                # sunrise-midday (soft morning light) - 6/10 of total daylight
+                "Southeast": self.get_fraction_of_time(day_lengths[i].time(), .6),
+                # midday-sunset (hard afternoon light) - 6/10 of total daylight
+                "Southwest": self.get_fraction_of_time(day_lengths[i].time(), .6),
             }
 
             sh_light_calculations = {
                 # sunrise to sunset - 7/8 of total daylight
-                "North": self.get_fraction_of_time(day_lengths[i].time(), 0.875),
+                "North": self.get_fraction_of_time(day_lengths[i].time(), 0.75),
                 # sunrise-midday (soft morning light)
                 "East": solar_noon_times[i] - sunrise_times[i],
                 # none to little sunlight - 1/16 of total daylight
                 "South": self.get_fraction_of_time(day_lengths[i].time(), .0625),
                 # midday-sunset (hard afternoon light)
                 "West": sunset_times[i] - solar_noon_times[i],
-                # sunrise-midday (soft morning light) - 3/4 of total daylight
-                "Northeast": self.get_fraction_of_time(day_lengths[i].time(), .75),
-                # midday-sunset (hard afternoon light) - 3/4 of total daylight
-                "Northwest": self.get_fraction_of_time(day_lengths[i].time(), .75),
+                # sunrise-midday (soft morning light) - 6/10 of total daylight
+                "Northeast": self.get_fraction_of_time(day_lengths[i].time(), .6),
+                # midday-sunset (hard afternoon light) - 6/10 of total daylight
+                "Northwest": self.get_fraction_of_time(day_lengths[i].time(), .6),
                 # 1/8 of daily sun (soft morning light)
                 "Southeast": self.get_fraction_of_time(day_lengths[i].time(), .125),
                 # 1/8 of daily sun (hard afternoon light)
