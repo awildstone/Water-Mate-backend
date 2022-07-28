@@ -5,7 +5,10 @@ import logging
 from requests.exceptions import HTTPError
 from datetime import date, datetime, timedelta
 from tzlocal import get_localzone
+import urllib3
 
+# disable InsecureRequestWarning
+urllib3.disable_warnings()
 
 BASE_URL = 'https://api.sunrise-sunset.org/json'
 
@@ -116,11 +119,12 @@ class SolarCalculator:
 
         response = ''
         try:
+            # verify=False will not verify certifificates this is a workaround until the API provider fixes SSL issues
             response = requests.get(BASE_URL, params={
                 'lat': str_lat,
                 'lng': str_lng,
                 'date': str_day
-            })
+            }, verify=False)
             # if the request is successfull this will not raise an HTTPError
             response.raise_for_status()
         except HTTPError as http_err:
