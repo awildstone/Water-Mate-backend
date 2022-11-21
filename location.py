@@ -6,8 +6,9 @@ import requests
 load_dotenv()  # take environment variables from .env
 
 MAPQUEST_KEY = os.getenv('MAPQUEST_KEY')
-BASE_URL = f'http://open.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_KEY}'
-CITY_LEVEL = 'A5';
+BASE_URL = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_KEY}'
+CITY_LEVEL = 'A5'
+
 
 class UserLocation:
     """A class instance for a User Location."""
@@ -16,7 +17,7 @@ class UserLocation:
         self.city = city
         self.state = state
         self.country = country
-    
+
     def _get_location(self):
         """Returns the location data based on the provided user input."""
 
@@ -25,10 +26,10 @@ class UserLocation:
 
         if (self.city and self.state):
             return f'{self.city}, {self.state}'
-        
+
         if (self.city and self.country):
             return f'{self.city}, {self.country}'
-    
+
     def get_coordinates(self):
         """Returns a Dict of latitude and longitude coordinates.
         Our target accuracy level is A5 (City level): https://developer.mapquest.com/documentation/geocoding-api/quality-codes/
@@ -93,13 +94,14 @@ class UserLocation:
             }
         ]
         }
-        
+
         """
 
         if (self.city and not self.state and not self.country):
             return
         try:
-            response = requests.get(BASE_URL, params={'location': self._get_location()})
+            response = requests.get(
+                BASE_URL, params={'location': self._get_location()})
             first_result = response.json()['results'][0]['locations'][0]
 
             if CITY_LEVEL in (first_result['geocodeQualityCode']):
